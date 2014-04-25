@@ -14,10 +14,11 @@ set (OE_LIBS
   oesystem
   oeplatform
 )
-set (LIBS "${OE_LIBS};${SYSLIBS};${SYSZLIB}")
+set (LIBS "${OMPLIBS};${OE_LIBS};${SYSLIBS};${SYSZLIB}")
 
 set (SRCS
     "molgrep molgrep.cpp molgrep.itf"
 )
 
+add_definitions("${OMPCFLAGS}")
 include (${OPENEYE_EXAMPLES_DIR}/ExamplesTemplate.cmake)
