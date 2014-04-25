@@ -1,11 +1,11 @@
 /**********************************************************************
-Copyright (C) 2008,2009 by OpenEye Scientific Software, Inc.
+Copyright (C) 2008,2009,2014 by OpenEye Scientific Software, Inc.
 ***********************************************************************/
-#include "openeye.h"
+#include <openeye.h>
 
-#include "oeplatform.h"
-#include "oesystem.h"
-#include "oechem.h"
+#include <oeplatform.h>
+#include <oesystem.h>
+#include <oechem.h>
 
 #include <vector>
 
@@ -90,7 +90,6 @@ int main(int argc, const char **argv)
   // load input file into a vector
   std::vector<OEGraphMol> mvec;
   LoadDatabase(argv[1], mvec, type);
-
   
   // Read smarts patterns from stdin
   OEWallTimer sw;
