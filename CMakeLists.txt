@@ -19,6 +19,7 @@ set (LIBS "${OMPLIBS};${OE_LIBS};${SYSLIBS};${SYSZLIB}")
 set (SRCS
     "molgrep molgrep.cpp molgrep.itf"
     "memsearch memsearch.cpp"
+    "nxnlingos nxnlingos.cpp"
 )
 
 add_definitions("${OMPCFLAGS}")
