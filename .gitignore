@@ -6,3 +6,4 @@ bin/
 cmake_install.cmake
 openeye/
 *.itf
+*~
