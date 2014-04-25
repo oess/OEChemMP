@@ -1,0 +1,30 @@
+!BRIEF [-r][-c] -p smarts [-i] <input> [[-o] <output>]
+!PARAMETER -i 1
+  !ALIAS -in
+  !TYPE string
+  !REQUIRED true
+  !BRIEF Input file name
+  !KEYLESS 1
+!END
+!PARAMETER -p 2
+  !TYPE string
+  !REQUIRED true
+  !BRIEF SMARTS pattern, quote for safety
+!END
+!PARAMETER -o 3
+  !ALIAS -out
+  !TYPE string
+  !BRIEF Output file name
+  !KEYLESS 2
+!END
+!PARAMETER -r 4
+  !ALIAS -v
+  !TYPE bool
+  !DEFAULT false
+  !BRIEF Reverse logic, not matched
+!END
+!PARAMETER -c 5
+  !TYPE bool
+  !DEFAULT false
+  !BRIEF Just output count of number matched
+!END
