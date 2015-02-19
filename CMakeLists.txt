@@ -10,6 +10,11 @@ set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin/)
 add_executable(text2hex ${OPENEYE_EXAMPLES_DIR}/text2hex.cpp)
 
 set (OE_LIBS 
+  oeomega2
+  oesheffield
+  oemmff
+  oemolpotential
+  oeopt
   oechem
   oesystem
   oeplatform
@@ -17,6 +22,7 @@ set (OE_LIBS
 set (LIBS "${OMPLIBS};${OE_LIBS};${SYSLIBS};${SYSZLIB}")
 
 set (SRCS
+    "confgen confgen.cpp confgen.itf"
     "molgrep molgrep.cpp molgrep.itf"
     "memsearch memsearch.cpp"
     "nxnlingos nxnlingos.cpp"

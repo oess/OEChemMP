@@ -1,0 +1,15 @@
+!BRIEF [-i] <input> [-o] <output>
+!PARAMETER -i 1
+  !ALIAS -in
+  !TYPE string
+  !REQUIRED true
+  !BRIEF Input file name
+  !KEYLESS 1
+!END
+!PARAMETER -o 3
+  !ALIAS -out
+  !TYPE string
+  !REQUIRED true
+  !BRIEF Output file name
+  !KEYLESS 2
+!END
