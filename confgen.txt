@@ -1,4 +1,4 @@
-!BRIEF [-i] <input> [-o] <output>
+!BRIEF [-i] <input> [-o] <output> [-f] <failures>
 !PARAMETER -i 1
   !ALIAS -in
   !TYPE string
@@ -12,4 +12,11 @@
   !REQUIRED true
   !BRIEF Output file name
   !KEYLESS 2
+!END
+!PARAMETER -f 3
+  !ALIAS -fails
+  !TYPE string
+  !REQUIRED true
+  !BRIEF Output file name for failures
+  !KEYLESS 3
 !END

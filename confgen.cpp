@@ -13,7 +13,7 @@ using namespace OESystem;
 using namespace OEChem;
 using namespace OEConfGen;
 
-static void ConfGen(oemolithread& ithread, oemolothread& othread)
+static void ConfGen(oemolithread& ithread, oemolothread& othread, oemolothread &fthread)
 {
   OEOmega omega;
   omega.SetRotorOffset(true);
@@ -27,9 +27,17 @@ static void ConfGen(oemolithread& ithread, oemolothread& othread)
       OEMol mcmol(*enantiomer);
 
       if (omega(mcmol))
-        OEWriteMolecule(othread, mcmol);
+      {
+        OEMol smaller;
+        OEROCSCompress(smaller, mcmol);
+
+        OEWriteMolecule(othread, smaller);
+      }
       else
+      {
+        OEWriteMolecule(fthread, *enantiomer);
         OEThrow.Warning("Failed to generate conformers for %s", mcmol.GetTitle());
+      }
     }
   }
 }
@@ -46,7 +54,11 @@ int main(int argc, char *argv[])
   if (!ofs.open(itf.Get<std::string>("-o")))
     OEThrow.Fatal("Unable to open %s for writing", itf.Get<std::string>("-o").c_str());
 
-  ConfGen(ifs, ofs);
+  oemolothread ffs;
+  if (!ffs.open(itf.Get<std::string>("-f")))
+    OEThrow.Fatal("Unable to open %s for writing", itf.Get<std::string>("-f").c_str());
+
+  ConfGen(ifs, ofs, ffs);
 
   return 0;
 }
