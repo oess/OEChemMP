@@ -22,6 +22,7 @@ static void ConfGen(oemolithread& ithread, oemolothread& othread, oemolothread &
 #pragma omp parallel private(omega) private(mol)
   while (OEReadMolecule(ithread, mol))
   {
+    OEThrow.Info("SMILES = %s", OEMolToSmiles(mol).c_str());
     for (OEIter<OEMolBase> enantiomer = OEFlipper(mol); enantiomer; ++enantiomer)
     {
       OEMol mcmol(*enantiomer);
